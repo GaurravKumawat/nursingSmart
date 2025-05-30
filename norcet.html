@@ -37,5 +37,22 @@
       nursingSmart Copyright 2025, All Rights Reserved
     </div>
   </section>
+<script>
+  // Hide loader after page loads
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("page-loader");
+    loader.classList.add("hidden");
+  });
+
+  // Optional: Show loader briefly when clicking internal links
+  document.querySelectorAll("a").forEach(link => {
+    if (!link.href.startsWith("#") && !link.target && link.href.includes(window.location.hostname)) {
+      link.addEventListener("click", () => {
+        document.getElementById("page-loader").classList.remove("hidden");
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
