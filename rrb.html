@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rrb2024|nursingSmart</title>
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+  <!-- Navigation -->
+<div id="navbar"></div>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+    });
+</script>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="neon-bg"></div>
+    <h1>THE BEST ONLINE TEACHING PLATFORM <span>N</span></h1>
+    <p>We Train The Nurses Better</p>
+    <button class="cta-button">Let's Get Started</button>
+    <div class="large-number">5</div>
+    <div class="footer-text">
+      nursingSmart Copyright 2025, All Rights Reserved
+    </div>
+  </section>
+</body>
+</html>

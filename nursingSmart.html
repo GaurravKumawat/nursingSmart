@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nursingSmart</title>
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+  <!-- Navigation -->
+<div id="navbar"></div>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+    });
+</script>
+
+
+  <!-- Hero Section -->
+  <div class="neon-bg"></div>
+  <section class="hero">
+    <h1>THE BEST ONLINE TEACHING PLATFORM <span>N</span></h1>
+    <p>We Train The Nurses Better</p>
+    <button class="cta-button">Let's Get Started</button>
+    <a href="c:\Users\suman\Desktop\XI BOOKS\MATHEMATICS\Ch 1.pdf" download class="cta-button">Maths Chapter One</a> 
+    <div class="large-number">5</div>
+    <div class="footer-text">
+      nursingSmart Copyright 2025, All Rights Reserved
+    </div>
+  </section>
+
+  <!-- Big Card -->
+  <div class="card-container">
+    <div class="card-image">
+      <img src="Photos/ROTI.jpg" alt="Photo">
+    </div>
+    <div class="card-content">
+      <div>
+        <h2>Text Description</h2>
+        <p>This is where your description goes. Explain your content clearly in this space. You can add more lines here if needed.</p>
+      </div>
+      <div class="card-button">
+        <button>Click Me</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
