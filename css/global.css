@@ -296,22 +296,21 @@
       visibility: hidden;
     }
 
-    html, body {
-      height: 100%;
-      margin: 0;
+
+
+    .site-body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .page-wrapper {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      flex: 1;
     }
 
-    .site-footer {
-      margin-top: auto;
+    .footer-text {
       text-align: center;
       padding: 1rem;
-      background-color: #111;
-      color: #aaa;
-      font-size: 0.9rem;
+      background-color: #f2f2f2;
+      font-size: 14px;
     }
