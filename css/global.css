@@ -154,12 +154,11 @@
     }
 
     .footer-text {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: #666;
+      color: white;
       text-align: center;
+      padding: 1em;
       width: 100%;
+      position: relative; /* Changed from absolute to relative */
     }
     .card-container {
       width: 75%;
@@ -301,16 +300,3 @@
       padding: 0;
       height: auto;
     }
-
-    .page-content {
-      min-height: 100vh;
-      padding-bottom: 2rem; /* Optional: Adds breathing room above footer */
-    }
-
-    .footer-text {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 1em;
-    }
-
