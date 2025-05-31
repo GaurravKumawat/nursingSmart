@@ -300,16 +300,3 @@
       height: 100%;
       margin: 0;
     }
-
-    /* Ensure full height layout */
-    html, body {
-      height: 100%;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Push main content to grow, pushing footer down */
-    body > *:not(footer) {
-      flex: 1;
-    }
