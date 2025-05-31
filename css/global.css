@@ -300,8 +300,21 @@
       height: 100%;
       margin: 0;
     }
+    
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: auto; /* No flex or full height */
+    }
 
     .page-content {
-      min-height: 80vh; /* Adjust as needed to keep footer at the bottom with short content */
-      padding-bottom: 2rem; /* Optional: adds spacing above the footer */
+      min-height: 100vh; /* Ensures page is tall even with less content */
+      padding-bottom: 2rem; /* Optional space before footer */
+    }
+
+    .footer-text {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 1em;
     }
