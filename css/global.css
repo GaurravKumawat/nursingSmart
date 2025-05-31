@@ -297,22 +297,20 @@
     }
 
     html, body {
-      height: 100%;
-      margin: 0;
-    }
-
-    html, body {
       margin: 0;
       padding: 0;
-      height: auto; /* No flex or full height */
+      height: auto;
     }
 
     .page-content {
-      min-height: 100vh; /* Ensures page is tall even with less content */
+      min-height: 100vh;
+      padding-bottom: 2rem; /* Optional: Adds breathing room above footer */
     }
 
     .footer-text {
+      background: #111;
       color: white;
       text-align: center;
       padding: 1em;
     }
+
