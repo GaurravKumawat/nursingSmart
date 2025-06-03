@@ -29,12 +29,21 @@
   <!-- Hero Section -->
   <div class="neon-bg"></div>
   <section class="hero">
-    <h1>THE BEST ONLINE TEACHING PLATFORM <span>N</span></h1>
+    <h1>THE BEST ONLINE TEACHING PLATFORM </h1>
     <p>We Train The Nurses Better</p>
     <button class="cta-button">Let's Get Started</button>
     <a href="pdf\ch.pdf" download class="cta-button">Maths Chapter One</a> 
     <div class="large-number">5</div>
   </section>
+
+  <!-- Photo Carousel -->
+<div class="carousel" onmouseover="stopAutoplay()" onmouseout="startAutoplay()">
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="images/t1.png" alt="Slide 1"></div>
+      <div class="carousel-slide"><img src="images/t2.png" alt="Slide 2"></div>
+      <div class="carousel-slide"><img src="images/t3.png" alt="Slide 3"></div>
+    </div>
+  </div>
 
   <!-- Big Card -->
   <div class="card-container">
@@ -51,7 +60,7 @@
       </div>
     </div>
   </div>
-  
+
 <footer class="footer-text">
   nursingSmart Copyright 2025, All Rights Reserved
 </footer>
@@ -71,5 +80,61 @@
     }
   });
 </script>
+<script>
+  const slides = document.querySelectorAll('.carousel-slide');
+  let currentSlide = 0;
+  let intervalId = null;
+
+  function updateCarousel() {
+    slides.forEach((slide, index) => {
+      slide.classList.remove('active', 'left', 'right');
+      if (index === currentSlide) {
+        slide.classList.add('active');
+      } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
+        slide.classList.add('left');
+      } else if (index === (currentSlide + 1) % slides.length) {
+        slide.classList.add('right');
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function startAutoplay() {
+    // Clear any existing interval before starting a new one
+    if (intervalId !== null) clearInterval(intervalId);
+    intervalId = setInterval(nextSlide, 4000);
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+    // Restart autoplay cleanly (so there’s only ever one interval running)
+    startAutoplay();
+  }
+
+  // Add click-handler to each slide
+  slides.forEach((slide, index) => {
+    slide.addEventListener('click', () => goToSlide(index));
+  });
+
+  window.addEventListener('load', () => {
+    updateCarousel();
+    startAutoplay();
+  });
+
+  // OPTIONAL: pause autoplay when the user hovers, resume on mouseout
+  const carouselEl = document.querySelector('.carousel');
+  carouselEl.addEventListener('mouseover', () => {
+    if (intervalId !== null) clearInterval(intervalId);
+  });
+  carouselEl.addEventListener('mouseout', () => {
+    startAutoplay();
+  });
+</script>
+
 </body>
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>norcet 7|nursingSmart</title>
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+  <!-- Page Loader -->
+<div id="page-loader">
+  <div class="loader-content">
+    <h1 class="logo-text">nursingSmart</h1>
+    <div class="loading-bar"></div>
+  </div>
+</div>
+
+  <!-- Navigation -->
+<div id="navbar"></div>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+    });
+</script>
+
+<div class="page-content">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="neon-bg"></div>
+    <h1>DOWNLOAD OUR APP nursingSmart <span>N</span></h1>
+    <button class="cta-button">Downlaod Now</button>
+    <div class="large-number">5</div>
+  </section>
+</div>
+
+<footer class="footer-text">
+  nursingSmart Copyright 2025, All Rights Reserved
+</footer>
+
+<script>
+  // Hide loader after page loads
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("page-loader");
+    loader.classList.add("hidden");
+  });
+
+  // Optional: Show loader briefly when clicking internal links
+  document.querySelectorAll("a").forEach(link => {
+    if (!link.href.startsWith("#") && !link.target && link.href.includes(window.location.hostname)) {
+      link.addEventListener("click", () => {
+        document.getElementById("page-loader").classList.remove("hidden");
+      });
+    }
+  });
+</script>
+</body>
+</html>
