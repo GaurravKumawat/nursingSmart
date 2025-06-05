@@ -348,3 +348,8 @@
       transform: translateX(437.5px) scale(0.8) rotateY(-30deg); /* 250px * 1.75 */
       z-index: 2;
     }
+
+    .fixed-container {
+      width: 1300px; /* or 1000px, or any fixed size you want */
+      margin: 0 auto;
+    }
