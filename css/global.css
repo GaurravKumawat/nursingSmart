@@ -326,7 +326,7 @@
     }
 
     .carousel-slide img {
-      width: 600px; /* 400px * 1.75 */
+      width: 600px;
       height: 100%;
       object-fit: cover;
       border-radius: 15px;
@@ -347,4 +347,10 @@
     .carousel-slide.right {
       transform: translateX(437.5px) scale(0.8) rotateY(-30deg); /* 250px * 1.75 */
       z-index: 2;
+    }
+
+    .wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
