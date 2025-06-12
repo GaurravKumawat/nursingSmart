@@ -300,8 +300,8 @@
     .carousel {
       position: relative;
       width: 100%;
-      max-width: 1400px;
-      height: 700px;
+      max-width: 1600px;
+      height: 400px; /*Chnges Height from up to down of whole carousel */
       margin: 0 auto;
       display: flex;
       justify-content: center;
