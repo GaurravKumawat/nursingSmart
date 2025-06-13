@@ -299,9 +299,9 @@
 
     .carousel {
       position: relative;
-      width: 100%;
-      max-width: 1600px;
-      height: 400px; /*Chnges Height from up to down of whole carousel */
+      width: 100vw;         /* 1400px equivalent (optional) */
+      max-width: 100vw;      /* Don't exceed screen width */
+      height: 25vw;          /* 400px on a 1600px screen */
       margin: 0 auto;
       display: flex;
       justify-content: center;
@@ -309,6 +309,7 @@
       overflow: hidden;
       perspective: 1000px;
     }
+
 
 
     .carousel-track {
