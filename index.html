@@ -145,6 +145,20 @@
     startAutoplay();
   });
 </script>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+
+      // Execute this AFTER header is injected
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    });
+</script>
   </div> <!-- /.wrapper -->
   <!-- ───── End of fixed-width wrapper ───── -->
 </body>
