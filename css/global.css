@@ -387,4 +387,28 @@
       .cta-button {
         display: none;
       }
+      
+      nav {
+        display: flex;
+        justify-content: center; /* center everything */
+        position: relative;
+      }
+
+      .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .hamburger {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 11;
+      }
+
+      .cta-button {
+        display: none;
+      }
     }
