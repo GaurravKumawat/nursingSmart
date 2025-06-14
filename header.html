@@ -1,6 +1,8 @@
 <nav>
   <div class="logo">nursingSmart</div>
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  
+  <div class="hamburger" id="hamburger">&#9776;</div>
+
   <div class="nav-links" id="navLinks">
     <a href="index.html">home</a>
     <a href="downloadapp.html">download app</a>
@@ -18,23 +20,16 @@
       </div>
     </div>
   </div>
+  
   <button class="cta-button">Let's Get Started</button>
 </nav>
 
 <script>
-  fetch("header.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("navbar").innerHTML = data;
-
-      // Now bind the event AFTER the content is injected
-      const hamburger = document.querySelector(".hamburger");
-      const navLinks = document.querySelector(".nav-links");
-
-      if (hamburger && navLinks) {
-        hamburger.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
-        });
-      }
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
     });
+  });
 </script>
