@@ -151,14 +151,16 @@
     .then(data => {
       document.getElementById("navbar").innerHTML = data;
 
-      // Execute this AFTER header is injected
       const hamburger = document.getElementById('hamburger');
-      const navLinks = document.getElementById('navLinks');
+      const overlayMenu = document.getElementById('overlayMenu');
+
       hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        overlayMenu.classList.toggle('active');
       });
     });
 </script>
+
   </div> <!-- /.wrapper -->
   <!-- ───── End of fixed-width wrapper ───── -->
 </body>

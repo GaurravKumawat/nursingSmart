@@ -403,12 +403,90 @@
       .hamburger {
         position: absolute;
         left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 11;
+        top: 20px;
+        transform: none;
       }
+
 
       .cta-button {
         display: none;
       }
+
+      /* Hamburger Styling */
+      .hamburger {
+        width: 30px;
+        height: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        z-index: 1100;
+      }
+      .hamburger span {
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+        transition: 0.4s;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      /* Full-screen overlay menu */
+      .overlay-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #000;
+        padding: 20px;
+        border-radius: 0 10px 10px 0;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        z-index: 1000;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        transition: all 0.3s ease;
+      }
+
+      .overlay-menu.active {
+        display: flex;
+      }
+
+      .overlay-menu.active {
+        transform: translateY(0);
+      }
+
+      /* Nav Links */
+      .overlay-menu a {
+        color: white;
+        font-size: 1rem;
+        text-decoration: none;
+        margin: 5px 0;
+        opacity: 1;
+        transform: none;
+        transition: color 0.3s;
+      }
+
+      .overlay-menu a:hover {
+        color: #ff4d4d;
+      }
+
+      .overlay-menu.active a {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .overlay-menu.active a:nth-child(1) { transition-delay: 0.2s; }
+      .overlay-menu.active a:nth-child(2) { transition-delay: 0.3s; }
+      .overlay-menu.active a:nth-child(3) { transition-delay: 0.4s; }
+      .overlay-menu.active a:nth-child(4) { transition-delay: 0.5s; }
+      .overlay-menu.active a:nth-child(5) { transition-delay: 0.6s; }
+      .overlay-menu.active a:nth-child(6) { transition-delay: 0.7s; }
+      .overlay-menu.active a:nth-child(7) { transition-delay: 0.8s; }
     }
