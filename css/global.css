@@ -11,6 +11,11 @@
       overflow-x: hidden;
     }
 
+    body.lock-scroll {
+      height: 100vh;
+      overflow: hidden;
+    }
+
     nav {
       display: flex;
       justify-content: space-between;

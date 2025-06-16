@@ -56,6 +56,44 @@
     }
   });
 </script>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+
+      const hamburger = document.getElementById('hamburger');
+      const overlayMenu = document.getElementById('overlayMenu');
+
+      function closeMenu() {
+        hamburger.classList.remove('active');
+        overlayMenu.classList.remove('active');
+        document.body.classList.remove('lock-scroll');
+      }
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('active');
+        overlayMenu.classList.toggle('active');
+        document.body.classList.toggle('lock-scroll', isOpen);
+      });
+
+      // Close menu on link click
+      overlayMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      // Click outside closes menu
+      document.addEventListener('click', (e) => {
+        if (
+          overlayMenu.classList.contains('active') &&
+          !overlayMenu.contains(e.target) &&
+          !hamburger.contains(e.target)
+        ) {
+          closeMenu();
+        }
+      });
+    });
+</script>
 
 </body>
 </html>
