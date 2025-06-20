@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mobile Carousel Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    .carousel {
+      width: 100vw;
+      max-width: 100%;
+      overflow: hidden;
+      margin: 50px 0;
+    }
+
+    .carousel-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
+    .carousel-slide {
+      min-width: 100vw;
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    /* Desktop view — hide this version of carousel */
+    @media screen and (min-width: 769px) {
+      .carousel {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align:center; padding: 20px;">Mobile Carousel Demo</h1>
+
+  <div class="carousel" id="mobileCarousel">
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="images/t1.png" alt="Slide 1"></div>
+      <div class="carousel-slide"><img src="images/t2.png" alt="Slide 2"></div>
+      <div class="carousel-slide"><img src="images/t3.png" alt="Slide 3"></div>
+    </div>
+  </div>
+
+  <script>
+    function enableMobileCarouselSnap() {
+      const isMobile = window.innerWidth <= 768;
+      if (!isMobile) return;
+
+      const track = document.querySelector('#mobileCarousel .carousel-track');
+      let startX = 0;
+      let isDragging = false;
+
+      track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+      });
+
+      track.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const deltaX = endX - startX;
+        const threshold = 50;
+
+        if (Math.abs(deltaX) < threshold) {
+          const slideWidth = track.clientWidth;
+          const scrollLeft = track.scrollLeft;
+          const index = Math.round(scrollLeft / slideWidth);
+          track.scrollTo({
+            left: index * slideWidth,
+            behavior: 'smooth'
+          });
+        }
+
+        isDragging = false;
+      });
+    }
+
+    window.addEventListener('load', enableMobileCarouselSnap);
+    window.addEventListener('resize', enableMobileCarouselSnap);
+  </script>
+
+</body>
+</html>

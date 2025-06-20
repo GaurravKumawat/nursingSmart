@@ -47,6 +47,14 @@
       transition: color 0.3s;
     }
 
+    /* Globally override link colors */
+    a,
+    a:visited,
+    a:active {
+      color: #fff;
+      text-decoration: none;
+    }
+
     .nav-links a:hover {
       color: #ff4d4d;
     }
@@ -103,14 +111,14 @@
 
 
     .hero {
-      height: 100vh;
+      padding: 120px 20px 60px; /* Top spacing for navbar, bottom for breathing room */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      position: relative;
     }
+
 
     .hero h1 {
       font-size: 7vw; /* Instead of 5rem */
@@ -141,7 +149,7 @@
       z-index: -1;
     }
 
-    .large-number {
+    /* .large-number {
       position: absolute;
       right: 50px;
       top: 50%;
@@ -151,7 +159,7 @@
       -webkit-text-stroke: 2px #ff4d4d;
       opacity: 0.3;
       z-index: -1;
-    }
+    } */
 
     .footer-text {
       color: white;
@@ -490,4 +498,14 @@
       .overlay-menu.active a:nth-child(7) { transition-delay: 0.7s; }
 
 
+    }
+    /* Show nav-links only on screens wider than 768px */
+    @media screen and (min-width: 769px) {
+      .nav-links {
+        display: flex !important;
+      }
+
+      .overlay-menu {
+        display: none !important;
+      }
     }
