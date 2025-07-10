@@ -509,13 +509,6 @@
       }
     }
 
-    /* Hide carousel on screens 768px wide or less */
-    @media screen and (max-width: 768px) {
-      .carousel,
-      .mobile-carousel {
-        display: none !important;
-      }
-    }
 
     /* Show carousel on desktop (769px and up) */
     @media screen and (min-width: 769px) {
@@ -523,3 +516,82 @@
         display: flex !important;
       }
     }
+
+    .mobile-carousel-wrapper {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      padding: 40px 0;
+    }
+
+    .mobile-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 16px;
+      padding: 0 calc((100vw - 280px) / 2);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .mobile-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mobile-carousel-card {
+      flex: 0 0 auto;
+      width: 280px;
+      height: 400px;
+      background-color: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .mobile-carousel-image {
+      height: 65%;
+      margin: 16px;
+      border-radius: 14px;
+      overflow: hidden;
+      background-color: #ddd;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .mobile-carousel-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mobile-carousel-content {
+      padding: 0 16px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mobile-carousel-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #000000;
+    }
+
+    .mobile-carousel-text {
+      font-size: 14px;
+      color: #000000;
+    }
+
+    /* Hide on desktop */
+    @media screen and (min-width: 769px) {
+      .mobile-carousel-wrapper {
+        display: none;
+      }
+    }
+    
