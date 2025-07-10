@@ -510,12 +510,6 @@
     }
 
 
-    /* Show carousel on desktop (769px and up) */
-    @media screen and (min-width: 769px) {
-      .carousel {
-        display: flex !important;
-      }
-    }
 
     .mobile-carousel-wrapper {
       width: 100%;
@@ -592,6 +586,13 @@
     @media screen and (min-width: 769px) {
       .mobile-carousel-wrapper {
         display: none;
+      }
+    }
+
+    /* Hide desktop carousel on mobile */
+    @media screen and (max-width: 768px) {
+      .carousel {
+        display: none !important;
       }
     }
     
