@@ -497,7 +497,6 @@
       .overlay-menu.active a:nth-child(6) { transition-delay: 0.6s; }
       .overlay-menu.active a:nth-child(7) { transition-delay: 0.7s; }
 
-
     }
     /* Show nav-links only on screens wider than 768px */
     @media screen and (min-width: 769px) {
@@ -507,5 +506,20 @@
 
       .overlay-menu {
         display: none !important;
+      }
+    }
+
+    /* Hide carousel on screens 768px wide or less */
+    @media screen and (max-width: 768px) {
+      .carousel,
+      .mobile-carousel {
+        display: none !important;
+      }
+    }
+
+    /* Show carousel on desktop (769px and up) */
+    @media screen and (min-width: 769px) {
+      .carousel {
+        display: flex !important;
       }
     }

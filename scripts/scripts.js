@@ -49,7 +49,7 @@ document.querySelectorAll("a").forEach(link => {
   }
 });
 
-// Carousel logic
+// Desktop Carousel logic
 const slides = document.querySelectorAll('.carousel-slide');
 let currentSlide = 0;
 let intervalId = null;
@@ -99,4 +99,38 @@ slides.forEach((slide) => {
 window.addEventListener('load', () => {
   updateCarousel();
   startAutoplay();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const carousel = document.getElementById("mobile-carousel");
+  if (!carousel) return;
+
+  let scrollTimeout;
+
+  function snapToNearestCard() {
+    const cards = carousel.querySelectorAll(".mobile-carousel-card");
+    const center = carousel.scrollLeft + carousel.offsetWidth / 2;
+
+    let minDistance = Infinity;
+    let snapCard = null;
+
+    cards.forEach(card => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const distance = Math.abs(center - cardCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        snapCard = card;
+      }
+    });
+
+    if (snapCard) {
+      const scrollTo = snapCard.offsetLeft - (carousel.offsetWidth - snapCard.offsetWidth) / 2;
+      carousel.scrollTo({ left: scrollTo, behavior: "smooth" });
+    }
+  }
+
+  carousel.addEventListener("scroll", () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(snapToNearestCard, 100);
+  });
 });
