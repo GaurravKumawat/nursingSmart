@@ -1,4 +1,4 @@
-    * {
+* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -460,7 +460,7 @@
         top: 60px;
         left: 0;
         background: #000;
-        width: 50%;
+        width: 180px;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -638,5 +638,31 @@
       }
       80% {
         border-radius: 40% 60% 40% 60% / 50% 50% 60%;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+        width: 80vw;
+        max-width: 80vw;
+        padding: 3vw 3vw;
+        margin: 20px auto;
+        border-radius: 4vw;
+      }
+      .card-image {
+        padding-right: 0;
+        margin-bottom: 16px;
+      }
+      .card-image img {
+        border-radius: 12px;
+      }
+      .card-content h2 {
+        padding: 10px 10px;
+        font-size: 1.3rem;
+      }
+      .card-button button {
+        padding: 10px 30px;
+        font-size: 15px;
       }
     }
