@@ -11,9 +11,12 @@
       overflow-x: hidden;
     }
 
+    html.lock-scroll,
     body.lock-scroll {
       height: 100vh;
       overflow: hidden;
+      position: fixed;
+      width: 100%;
     }
 
     nav {
