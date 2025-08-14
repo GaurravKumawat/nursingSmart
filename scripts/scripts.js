@@ -134,6 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   carousel.addEventListener("scroll", () => {
     clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(snapToNearestCard, 100);
+    scrollTimeout = setTimeout(snapToNearestCard, 50);
   });
 });
