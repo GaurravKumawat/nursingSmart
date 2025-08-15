@@ -691,3 +691,23 @@
     .mobile-carousel-card {
       scroll-snap-align: center;
     }
+
+    .mobile-carousel-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+      gap: 8px;
+    }
+
+    .mobile-carousel-dots .dot {
+      width: 8px;
+      height: 8px;
+      background-color: #ccc;
+      border-radius: 50%;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .mobile-carousel-dots .dot.active {
+      background-color: #ff4d4d; /* Highlight color */
+      transform: scale(1.3);
+    }

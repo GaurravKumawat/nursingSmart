@@ -104,36 +104,75 @@ window.addEventListener('load', () => {
   startAutoplay();
 });
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   const carousel = document.getElementById("mobile-carousel");
+//   if (!carousel) return;
+
+//   let scrollTimeout;
+
+//   function snapToNearestCard() {
+//     const cards = carousel.querySelectorAll(".mobile-carousel-card");
+//     const center = carousel.scrollLeft + carousel.offsetWidth / 2;
+
+//     let minDistance = Infinity;
+//     let snapCard = null;
+
+//     cards.forEach(card => {
+//       const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+//       const distance = Math.abs(center - cardCenter);
+//       if (distance < minDistance) {
+//         minDistance = distance;
+//         snapCard = card;
+//       }
+//     });
+
+//     if (snapCard) {
+//       const scrollTo = snapCard.offsetLeft - (carousel.offsetWidth - snapCard.offsetWidth) / 2;
+//       carousel.scrollTo({ left: scrollTo, behavior: "smooth" });
+//     }
+//   }
+
+//   carousel.addEventListener("scroll", () => {
+//     clearTimeout(scrollTimeout);
+//     scrollTimeout = setTimeout(snapToNearestCard, 50);
+//   });
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
   const carousel = document.getElementById("mobile-carousel");
-  if (!carousel) return;
+  const dotsContainer = document.getElementById("mobile-carousel-dots");
+  if (!carousel || !dotsContainer) return;
 
-  let scrollTimeout;
+  const cards = carousel.querySelectorAll(".mobile-carousel-card");
 
-  function snapToNearestCard() {
-    const cards = carousel.querySelectorAll(".mobile-carousel-card");
+  // Create dots
+  cards.forEach((_, index) => {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll(".dot");
+
+  function updateDots() {
     const center = carousel.scrollLeft + carousel.offsetWidth / 2;
-
     let minDistance = Infinity;
-    let snapCard = null;
+    let activeIndex = 0;
 
-    cards.forEach(card => {
+    cards.forEach((card, index) => {
       const cardCenter = card.offsetLeft + card.offsetWidth / 2;
       const distance = Math.abs(center - cardCenter);
       if (distance < minDistance) {
         minDistance = distance;
-        snapCard = card;
+        activeIndex = index;
       }
     });
 
-    if (snapCard) {
-      const scrollTo = snapCard.offsetLeft - (carousel.offsetWidth - snapCard.offsetWidth) / 2;
-      carousel.scrollTo({ left: scrollTo, behavior: "smooth" });
-    }
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[activeIndex].classList.add("active");
   }
 
-  carousel.addEventListener("scroll", () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(snapToNearestCard, 50);
-  });
+  carousel.addEventListener("scroll", updateDots);
+  window.addEventListener("resize", updateDots);
 });
