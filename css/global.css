@@ -681,3 +681,13 @@
         font-size: 15px;
       }
     }
+
+
+    /* Native snap scrolling */
+    .mobile-carousel {
+      scroll-snap-type: x mandatory;
+    }
+
+    .mobile-carousel-card {
+      scroll-snap-align: center;
+    }
