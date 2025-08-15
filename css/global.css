@@ -532,11 +532,11 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
 
-      /* ✅ Native snapping for instant feel */
+      /* ✅ Native snapping for no flicker */
       scroll-snap-type: x mandatory;
       scroll-padding-inline: calc((100vw - 280px) / 2);
       -webkit-overflow-scrolling: touch;
-      scroll-behavior: auto; /* disable slow JS-style smooth scroll */
+      scroll-behavior: auto; /* Remove smooth here to avoid double animations */
     }
 
     .mobile-carousel::-webkit-scrollbar {
@@ -554,9 +554,9 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      transition: transform 0.5s ease, opacity 0.5s ease;
+      transition: transform 0.3s ease, opacity 0.3s ease;
 
-      /* ✅ Each card will snap to center */
+      /* ✅ Ensure snap point */
       scroll-snap-align: center;
       scroll-snap-stop: always;
     }
