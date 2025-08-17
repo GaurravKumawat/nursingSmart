@@ -176,3 +176,20 @@ document.addEventListener("DOMContentLoaded", () => {
   carousel.addEventListener("scroll", updateDots);
   window.addEventListener("resize", updateDots);
 });
+
+// Tap animation effect for mobile carousel
+const cards = carousel.querySelectorAll(".mobile-carousel-card");
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    // Remove active state from all cards
+    cards.forEach(c => c.classList.remove("active"));
+
+    // Add active state to tapped card
+    card.classList.add("active");
+
+    // Auto-center tapped card
+    const scrollTo = card.offsetLeft - (carousel.offsetWidth - card.offsetWidth) / 2;
+    carousel.scrollTo({ left: scrollTo, behavior: "smooth" });
+  });
+});

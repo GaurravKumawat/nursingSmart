@@ -711,3 +711,17 @@
       background-color: #ff4d4d; /* Highlight color */
       transform: scale(1.3);
     }
+
+    .mobile-carousel-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .mobile-carousel-card:active {
+      transform: scale(0.95); /* quick shrink when pressed */
+    }
+
+    .mobile-carousel-card.active {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      z-index: 10; /* bring tapped card forward */
+    }
